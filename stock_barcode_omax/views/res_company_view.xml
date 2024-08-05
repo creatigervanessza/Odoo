@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_company_form_qrcode_omax" model="ir.ui.view">
+            <field name="name">res.company.form.orcode.omax</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="QRCode Configuration" name="picking_qrcode_config">
+                        <b><span>Picking Fields</span></b>
+                        <field name="picking_field_ids" domain="[('ttype', 'in', ['char','date','datetime','float','integer','many2one','monetary','selection','text']), ('model_id', '=', 'stock.picking')]" nolabel="1">
+                            <tree editable="bottom" string="Sale Order/Quotation Fields">
+                                <field name="name"/>
+                                <field name="field_description"/>
+                                <field name="model_id"/>
+                                <field name="ttype"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
